@@ -1,0 +1,3 @@
+sudachipy
+sudachidict_core
+sudachidict-full
