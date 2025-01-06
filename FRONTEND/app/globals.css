@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "YuGothic";
+  src: url("/fonts/yu-gothic-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  unicode-range: U+0000-002F, U+003A-0040, U+005B-0060, U+007B-3000, U+3000-30FF,
+    U+4E00-9FFF, U+FF00-FFEF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YuGothic";
+  src: url("/fonts/yu-gothic-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  unicode-range: U+0000-002F, U+003A-0040, U+005B-0060, U+007B-3000, U+3000-30FF,
+    U+4E00-9FFF, U+FF00-FFEF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YuGothic";
+  src: url("/fonts/yu-gothic-semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  unicode-range: U+0000-002F, U+003A-0040, U+005B-0060, U+007B-3000, U+3000-30FF,
+    U+4E00-9FFF, U+FF00-FFEF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YuGothic";
+  src: url("/fonts/yu-gothic-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  unicode-range: U+0000-002F, U+003A-0040, U+005B-0060, U+007B-3000, U+3000-30FF,
+    U+4E00-9FFF, U+FF00-FFEF;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -17,5 +57,12 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic",
+    YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+  font-weight: 500;
+  color: #484848;
+}
+
+html {
+  scroll-behavior: smooth;
 }
