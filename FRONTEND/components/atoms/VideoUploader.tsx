@@ -17,7 +17,7 @@ export function VideoUploader({ onFileChange, inputRef }: VideoUploaderProps) {
         <p className="mb-2 text-sm text-gray-500">
           <span className="font-semibold">クリックしてアップロードする</span> か、ドラッグアンドドロップしてください
         </p>
-        <p className="text-xs text-gray-500">MP4、WebM（最大100MB）</p>
+        <p className="text-xs text-gray-500">MP4、WebM、Ogg（最大100MB）</p>
       </div>
       <input
         ref={inputRef}

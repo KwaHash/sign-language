@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { VideoUploader } from '@/components/atoms/VideoUploader';
-// import { VideoUploader } from './VideoUploader';
+import { VideoPlayer } from '@/components/atoms/VideoPlayer';
 // import { VideoPlayer } from './VideoPlayer';
 // import { TextInput } from './TextInput';
 // import { Button } from './Button';
@@ -81,15 +81,6 @@ export function VideoUpload() {
           onClear={clearVideo}
         />
       )}
-
-      {/* <div className="mt-8 flex justify-center">
-        <Button
-          onClick={handleRegister}
-          disabled={!video || !title.trim()}
-        >
-          Register Video
-        </Button>
-      </div> */}
     </div>
   );
 }
