@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Button from "@mui/material/Button";
+
 import { VideoUploader } from '@/components/atoms/VideoUploader';
 import { VideoPlayer } from '@/components/atoms/VideoPlayer';
 // import { VideoPlayer } from './VideoPlayer';
@@ -81,6 +83,22 @@ export function VideoUpload() {
           onClear={clearVideo}
         />
       )}
+
+      <div className="mt-8 flex justify-center">
+        <Button
+          variant="contained"
+          onClick={handleRegister}
+          // disabled={!video || !title.trim()}
+          sx={{
+            padding: '5px 30px',
+            fontSize: '20px',
+            borderRadius: '1px',
+            fontFamily: "-apple-system, BlinkMacSystemFont, Helvetica Neue, Yu Gothic, Verdana, Meiryo, sans-serif"
+          }}
+        >
+          登録する
+        </Button>
+      </div>
     </div>
   );
 }

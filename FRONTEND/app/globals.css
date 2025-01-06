@@ -58,7 +58,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic",
-    YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+    Verdana, Meiryo, "M+ 1p", sans-serif;
   font-weight: 500;
   color: #484848;
 }
