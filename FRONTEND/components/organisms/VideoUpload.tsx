@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import axios from 'axios';
 import Button from "@mui/material/Button";
 
 import { VideoUploader } from '@/components/atoms/VideoUploader';
@@ -37,18 +38,23 @@ export function VideoUpload() {
     }
   };
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if (!video || !videoUrl || !title.trim()) {
       alert('タイトルとビデオの両方を入力してください');
       return;
     }
 
-    // onRegister({
-    //   title: title.trim(),
-    //   fileName: video.name,
-    //   fileSize: video.size,
-    //   videoUrl,
-    // });
+    const formData = new FormData();
+    formData.append("video", video);
+
+    const res = await axios.post("/api/upload-video", formData);
+    if (res.status === 200) {
+      const savedVideoUrl = res.data.url;
+      await axios.post('/api/create', {
+        title: title.trim(),
+        videoUrl: savedVideoUrl,
+      })
+    }
 
     setTitle('');
     clearVideo();
