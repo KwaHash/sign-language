@@ -1,20 +1,21 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import Button from "@mui/material/Button";
 
 import { VideoUploader } from '@/components/atoms/VideoUploader';
 import { VideoPlayer } from '@/components/atoms/VideoPlayer';
 import { TextInput } from '@/components/atoms/TextInput';
-// import type { Video } from '../types/video';
 
-// type VideoUploadProps = {
-//   onRegister: (video: Omit<Video, 'id' | 'createdAt'>) => void;
-// };
+type VideoUploadProps = {
+  setLoading: (isLoading: boolean) => void;
+};
 
 // export function VideoUpload({ onRegister }: VideoUploadProps) {
-export function VideoUpload() {
+const VideoUpload: React.FC<VideoUploadProps> = ({ setLoading }) => {
+  const router = useRouter();
   const [title, setTitle] = useState<string>('');
   const [video, setVideo] = useState<File | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
@@ -47,6 +48,7 @@ export function VideoUpload() {
     const formData = new FormData();
     formData.append("video", video);
 
+    setLoading(true);
     const res = await axios.post("/api/upload-video", formData);
     if (res.status === 200) {
       const savedVideoUrl = res.data.url;
@@ -54,8 +56,11 @@ export function VideoUpload() {
         title: title.trim(),
         videoUrl: savedVideoUrl,
       })
+
+      router.push('/list');
     }
 
+    setLoading(false);
     setTitle('');
     clearVideo();
   };
@@ -103,3 +108,5 @@ export function VideoUpload() {
     </div>
   );
 }
+
+export default VideoUpload;
