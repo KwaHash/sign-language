@@ -3,7 +3,7 @@ import { FaUpload } from "react-icons/fa";
 
 type VideoUploaderProps = {
   onFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  inputRef: React.RefObject<HTMLInputElement | null>;
+  inputRef: React.RefObject<HTMLInputElement>;
 };
 
 export function VideoUploader({ onFileChange, inputRef }: VideoUploaderProps) {
