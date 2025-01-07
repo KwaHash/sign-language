@@ -5,6 +5,7 @@ export default {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./features/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -12,6 +13,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         "m-blue": "#2560eb",
+        "m-green": "#50C300",
         "m-light-green": "#edf8d2",
       },
     },
