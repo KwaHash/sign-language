@@ -44,6 +44,7 @@ const VideoUpload: React.FC<VideoUploadProps> = ({ setLoading }) => {
       return;
     }
 
+    const words = title.trim().split(/[, 、]+/).filter(Boolean);
     const formData = new FormData();
     formData.append("video", video);
 
@@ -51,10 +52,7 @@ const VideoUpload: React.FC<VideoUploadProps> = ({ setLoading }) => {
     const res = await axios.post("/api/upload-video", formData);
     if (res.status === 200) {
       const savedVideoUrl = res.data.url;
-      await axios.post('/api/create', {
-        title: title.trim(),
-        videoUrl: savedVideoUrl,
-      })
+      words.map(word => axios.post('/api/create', { word, videoUrl: savedVideoUrl }));
 
       router.push('/list');
     }

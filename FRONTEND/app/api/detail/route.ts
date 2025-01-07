@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   try {
     const { token } = await req.json();
-    const queryStr = "SELECT videoUrl FROM mappings WHERE title = ?";
+    const queryStr = "SELECT videoUrl FROM mappings WHERE word = ?";
 
     const [result] = (await withDatabase(async (db) =>
       db.query(queryStr, [token])

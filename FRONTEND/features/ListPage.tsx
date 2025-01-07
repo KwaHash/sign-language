@@ -43,7 +43,7 @@ const ListPage: React.FC<ListPageProps> = ({ videos }) => {
             <tbody>
               {videos.map((video, index) => (
                 <VideoCard
-                  key={video.id}
+                  key={index}
                   index={index}
                   video={video}
                   onSelect={handleVideoSelect}

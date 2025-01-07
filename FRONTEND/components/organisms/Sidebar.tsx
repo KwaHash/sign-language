@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { Paper, Divider } from '@mui/material';
 
@@ -16,6 +16,7 @@ const menues = [
 ];
 
 const Sidebar = () => {
+  const [topic, setTopic] = useState<string>('手話チャット');
   return (
     <Paper
       elevation={1}
@@ -28,21 +29,23 @@ const Sidebar = () => {
         borderRadius: 0,
         display: 'flex',
         flexDirection: 'column',
-        // backgroundColor: '#3a4358',
       }}
     >
       <Logo />
       <Divider />
 
       {menues.map((item, index) => (
-        <Link
-          key={index}
-          className="w-full flex items-center pl-8 py-4"
-          href={item.link}
-        >
-          <span className="mr-4 text-3xl">{item.icon}</span>
-          <span className='font-bold'>{item.label}</span>
-        </Link>
+        <div key={index}>
+          <Link
+            className={`w-full flex items-center pl-8 py-4 ${topic === item.label ? 'bg-[#edf8d2]' : ''}`}
+            href={item.link}
+            onClick={() => setTopic(item.label)}
+          >
+            <span className="mr-4 text-3xl">{item.icon}</span>
+            <span className='font-bold'>{item.label}</span>
+          </Link>
+          <Divider />
+        </div>
       ))}
     </Paper>
   );
