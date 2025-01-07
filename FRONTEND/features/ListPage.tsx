@@ -3,7 +3,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { FaPlus } from "react-icons/fa6";
+
 import VideoCard from '@/components/molecules/VideoCard';
+import VideoModal from '@/components/molecules/VideoModal';
 import type { Video } from '@/utils/types';
 
 interface ListPageProps {
@@ -12,8 +14,10 @@ interface ListPageProps {
 
 const ListPage: React.FC<ListPageProps> = ({ videos }) => {
 
+  const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+
   const handleVideoSelect = (video: Video) => {
-    console.log('Selected video:', video);
+    setSelectedVideo(video);
   };
 
   return (
@@ -53,6 +57,13 @@ const ListPage: React.FC<ListPageProps> = ({ videos }) => {
           </p>
         )}
       </div>
+
+      {selectedVideo && (
+        <VideoModal
+          video={selectedVideo}
+          onClose={() => setSelectedVideo(null)}
+        />
+      )}
     </div>
   )
 }
