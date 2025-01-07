@@ -18,7 +18,6 @@ const VideoCard: React.FC<VideoCardProps> = ({ index, video, onSelect }) => {
       <td className="flex-1 p-6 border-r text-sm">
         {video.title}
       </td>
-
       <td className="w-[250px] h-full relative flex-shrink-0 py-2">
         <video
           src={video.videoUrl}
