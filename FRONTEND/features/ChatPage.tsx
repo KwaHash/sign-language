@@ -16,6 +16,7 @@ const ChatPage = () => {
     const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tokenize`, { text });
     if (res.status === 200) {
       const tokens = res.data as string[];
+      console.log("tokens: ", tokens);
       const videoUrls = await Promise.all(
         tokens.map(async (token) => {
           const { status, data: videoUrl } = await axios.post('/api/detail', { token });
@@ -27,6 +28,7 @@ const ChatPage = () => {
         setOpen(true);
       }
       setDisplayVideos(validVideoUrls);
+      console.log("urls: ", validVideoUrls);
       setCounts(prev => prev + 1);
     }
   };

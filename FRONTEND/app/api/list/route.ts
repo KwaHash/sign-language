@@ -1,7 +1,7 @@
 import { withDatabase } from "@/lib/db";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+export async function POST() {
   try {
     const queryStr = `
       SELECT videoUrl, GROUP_CONCAT(word ORDER BY word SEPARATOR '、') AS title

@@ -1,5 +1,6 @@
 import { withDatabase } from "@/lib/db";
 import { NextRequest, NextResponse } from "next/server";
+import { ResultSetHeader } from "mysql2";
 
 export async function POST(req: NextRequest) {
   try {
@@ -7,8 +8,11 @@ export async function POST(req: NextRequest) {
     const queryStr = `INSERT INTO mappings (word, videoUrl) VALUES (?, ?)`;
 
     const lastInsertedId = await withDatabase(async (db) => {
-      const [result] = await db.execute(queryStr, [word, videoUrl]);
-      return (result as any).insertId;
+      const [result] = await db.execute<ResultSetHeader>(queryStr, [
+        word,
+        videoUrl,
+      ]);
+      return result.insertId;
     });
 
     return NextResponse.json({ lastInsertedId });

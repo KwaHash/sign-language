@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Dialog, DialogActions, DialogTitle, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 

@@ -1,4 +1,3 @@
-import axios from "axios";
 import ChatPage from "@/features/ChatPage";
 
 export default async function Page() {
