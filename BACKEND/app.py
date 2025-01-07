@@ -6,7 +6,7 @@ import os
 app = Quart(__name__)
 cors(app)
 
-@app.route('/tokenize', methods=['POST'])
+@app.route('/tokenize/tokens', methods=['POST'])
 async def tokenize():
   tokenizer_obj = dictionary.Dictionary().create()
 

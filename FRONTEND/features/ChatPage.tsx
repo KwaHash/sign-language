@@ -13,7 +13,7 @@ const ChatPage = () => {
   const [open, setOpen] = useState(false);
 
   const handleClick = async (text: string) => {
-    const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/tokenize`, { text });
+    const res = await axios.post('/tokenize/tokens', { text });
     if (res.status === 200) {
       const tokens = res.data as string[];
       console.log("tokens: ", tokens);
