@@ -5,9 +5,7 @@ import Button from "@mui/material/Button";
 
 import { VideoUploader } from '@/components/atoms/VideoUploader';
 import { VideoPlayer } from '@/components/atoms/VideoPlayer';
-// import { VideoPlayer } from './VideoPlayer';
-// import { TextInput } from './TextInput';
-// import { Button } from './Button';
+import { TextInput } from '@/components/atoms/TextInput';
 // import type { Video } from '../types/video';
 
 // type VideoUploadProps = {
@@ -16,9 +14,9 @@ import { VideoPlayer } from '@/components/atoms/VideoPlayer';
 
 // export function VideoUpload({ onRegister }: VideoUploadProps) {
 export function VideoUpload() {
+  const [title, setTitle] = useState<string>('');
   const [video, setVideo] = useState<File | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
-  const [title, setTitle] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +25,7 @@ export function VideoUpload() {
       setVideo(file);
       setVideoUrl(URL.createObjectURL(file));
     } else {
-      alert('Please select a valid video file');
+      alert('有効なビデオファイルを選択してください');
     }
   };
 
@@ -41,7 +39,7 @@ export function VideoUpload() {
 
   const handleRegister = () => {
     if (!video || !videoUrl || !title.trim()) {
-      alert('Please provide both a title and a video');
+      alert('タイトルとビデオの両方を入力してください');
       return;
     }
 
@@ -52,19 +50,16 @@ export function VideoUpload() {
     //   videoUrl,
     // });
 
-    // Reset form
     setTitle('');
     clearVideo();
   };
 
   return (
     <div className="w-full max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      {/* <TextInput
+      <TextInput
         value={title}
         onChange={setTitle}
-        placeholder="Enter video title..."
-        label="Video Title"
-      /> */}
+      />
 
       {!video && (
         <div className="mb-8">
@@ -88,7 +83,7 @@ export function VideoUpload() {
         <Button
           variant="contained"
           onClick={handleRegister}
-          // disabled={!video || !title.trim()}
+          disabled={!video || !title.trim()}
           sx={{
             padding: '5px 30px',
             fontSize: '20px',

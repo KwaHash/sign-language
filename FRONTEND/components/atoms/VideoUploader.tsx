@@ -3,14 +3,14 @@ import { FaUpload } from "react-icons/fa";
 
 type VideoUploaderProps = {
   onFileChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  inputRef: React.RefObject<HTMLInputElement>;
+  inputRef: React.RefObject<HTMLInputElement | null>;
 };
 
 export function VideoUploader({ onFileChange, inputRef }: VideoUploaderProps) {
   return (
     <label
       htmlFor="video-upload"
-      className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors"
+      className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-gray-300 rounded cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors duration-300 ease-out"
     >
       <div className="flex flex-col items-center justify-center pt-5 pb-6">
         <FaUpload className="w-12 h-12 mb-4 text-gray-500" />

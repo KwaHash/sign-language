@@ -13,7 +13,7 @@ export function VideoPlayer({ videoUrl, fileName, fileSize, onClear }: VideoPlay
     <div className="relative bg-white rounded-lg shadow-lg p-4">
       <button
         onClick={onClear}
-        className="absolute -top-5 -right-5 p-1 bg-gray-800 text-white rounded-full hover:bg-m-green duration-300 ease-out transition-colors z-10 shadow-md"
+        className="absolute -top-5 -right-5 p-1 bg-gray-800 text-white rounded-full hover:bg-[#1976d2] duration-300 ease-out transition-colors z-10 shadow-md"
         aria-label="Close video"
       >
         <IoCloseCircle className="w-6 h-6" />
@@ -26,12 +26,8 @@ export function VideoPlayer({ videoUrl, fileName, fileSize, onClear }: VideoPlay
         ブラウザはビデオタグをサポートしていません。
       </video>
       <div className="mt-4">
-        <p className="text-sm text-gray-600">
-          ファイル名：{fileName}
-        </p>
-        <p className="text-sm text-gray-600">
-          サイズ：{(fileSize / (1024 * 1024)).toFixed(2)} MB
-        </p>
+        <p className="text-sm">ファイル名：{fileName}</p>
+        <p className="text-sm mt-1">サイズ：{(fileSize / (1024 * 1024)).toFixed(2)} MB</p>
       </div>
     </div>
   );
