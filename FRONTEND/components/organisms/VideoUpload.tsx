@@ -13,7 +13,6 @@ type VideoUploadProps = {
   setLoading: (isLoading: boolean) => void;
 };
 
-// export function VideoUpload({ onRegister }: VideoUploadProps) {
 const VideoUpload: React.FC<VideoUploadProps> = ({ setLoading }) => {
   const router = useRouter();
   const [title, setTitle] = useState<string>('');

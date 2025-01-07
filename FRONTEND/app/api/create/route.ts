@@ -4,12 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   try {
     const { title, videoUrl } = await req.json();
-
-    const queryStr = `
-      INSERT INTO mappings 
-        (title, videoUrl) 
-      VALUES (?, ?)
-    `;
+    const queryStr = `INSERT INTO mappings (title, videoUrl) VALUES (?, ?)`;
 
     const lastInsertedId = await withDatabase(async (db) => {
       const [result] = await db.execute(queryStr, [title, videoUrl]);

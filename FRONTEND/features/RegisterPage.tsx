@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import VideoUpload from '@/components/organisms/VideoUpload';
 import Loading from '@/components/molecules/loading';
-// import type { Video } from '../types/video';
 
 const RegisterPage = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
