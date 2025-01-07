@@ -12,7 +12,7 @@ import { GiArchiveRegister } from "react-icons/gi";
 const menues = [
   { label: '手話チャット', icon: <RiSnapchatFill />, link: '' as const },
   { label: '手話一覧', icon: <PiListBulletsFill />, link: 'list' as const },
-  { label: '手話登録', icon: <GiArchiveRegister />, link: 'register' as const },
+  { label: '手話登録', icon: <GiArchiveRegister />, link: 'create' as const },
 ];
 
 const Sidebar = () => {
