@@ -1,3 +1,6 @@
 sudachipy
 sudachidict_core
 sudachidict-full
+
+quart
+quart_cors
